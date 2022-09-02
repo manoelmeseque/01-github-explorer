@@ -1,0 +1,12 @@
+{
+  "name": "01-github-explorer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/manoelmeseque/01-github-explorer.git",
+  "author": "mesequeteixeira <57111262+manoelmeseque@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

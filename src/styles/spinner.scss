@@ -13,4 +13,8 @@ div.spinner-body {
         }
     }
 
+    @media screen and (max-width: 414px) {
+        margin: 0 auto 2rem;
+    }
+
 }

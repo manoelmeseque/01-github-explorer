@@ -5,22 +5,30 @@ section.repository-list {
         margin-bottom: 1rem;
         display: flex;
         align-items: center;
+        justify-content: flex-start;
 
-        input {
-            width: 15rem;
+        input, select {
             height: 2rem;
-
             color: var(--text-color);
             font-weight: bold;
-
+            
             border: none;
+            
             padding: 0.5rem;
             margin-right: 0.25rem;
 
             &:hover, &:focus {
                 outline-color: var(--primary-color);
-                outline-width: 1px;
             }
+        }
+
+        input {
+            width: 15rem;
+        }
+
+        select {
+            width: 10rem;
+            text-align: center;
         }
 
         button {
@@ -43,6 +51,16 @@ section.repository-list {
                 transition: all 1s;
             }
         }
+
+        @media screen and (max-width: 414px) {
+            flex-direction: column;
+            align-items: flex-start;
+            
+            input, select {
+                margin-bottom: 0.5rem;
+            }
+        }
+
 
         @media screen and (max-width: 711px) {
             input {
@@ -75,6 +93,12 @@ section.repository-list {
                 margin-top: 1rem;
                 text-decoration: none;
                 color: var(--primary-color);
+
+                transition: all 1s;
+
+                &:hover {
+                    filter: brightness(0.8);
+                }
             }
 
         }

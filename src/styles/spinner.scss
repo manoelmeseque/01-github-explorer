@@ -1,0 +1,16 @@
+div.spinner-body {
+    border: 4px solid transparent;
+    border-left-color: var(--primary-color);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-bottom: 2rem;
+    animation: spin 1s linear infinite;
+
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+}

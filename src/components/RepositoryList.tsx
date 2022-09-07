@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { RepositoryItem } from "./RepositoryItem";
 import { Header } from "./Header";
+import { Spinner } from './Spinner';
 
 import '../styles/repositories.scss';
 
@@ -32,6 +33,8 @@ export function RepositoryList(){
                     Search
                 </button>
             </section>
+
+            <Spinner />
 
             <ul>
                 {repositories.map(repository => {

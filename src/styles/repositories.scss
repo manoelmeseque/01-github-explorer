@@ -1,31 +1,86 @@
 section.repository-list {
-    margin: 45px;
+    margin: 1.5rem 7.5rem;
 
-    h1 {
-        margin-bottom: 16px;
+    section.search-box {
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+
+        input {
+            width: 15rem;
+            height: 2rem;
+
+            color: var(--text-color);
+            font-weight: bold;
+
+            border: none;
+            padding: 0.5rem;
+            margin-right: 0.25rem;
+
+            &:hover, &:focus {
+                outline-color: var(--primary-color);
+                outline-width: 1px;
+            }
+        }
+
+        button {
+            width: 6rem;
+            height: 2rem;
+
+            border: 2px solid var(--primary-color);
+            background-color: var(--primary-color);
+            color: #FFFFFF;
+
+            font-size: 0.875rem;
+            font-weight: bold;
+
+            transition: all 1s;
+
+            cursor: pointer;
+
+            &:hover, &:focus {
+                filter: brightness(0.85);
+                transition: all 1s;
+            }
+        }
+
+        @media screen and (max-width: 711px) {
+            input {
+                flex-grow: 1;
+            }
+        }
+
     }
 
     ul {
         list-style: none;
 
         li {
+            background-color: #FFFFFF;
+            padding: 1rem;
+            border-radius: 0.5rem;
+
+
             & + li {
-                margin-top: 20px;
+                margin-top: 1.25rem;
             }
 
             p {
-                font-size: 14px;
-                color: #444;
-                margin-top: 8px;
+                font-size: 0.875rem;
+                margin-top: 0.5rem;
             }
 
             a {
                 display: inline-block;
-                margin-top: 16px;
+                margin-top: 1rem;
                 text-decoration: none;
-                color: #8257e6;
+                color: var(--primary-color);
             }
 
         }
+    }
+
+    @media screen and (max-width: 711px) {
+        margin: 1.5rem;
     }
 }

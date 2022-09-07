@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { RepositoryItem } from "./RepositoryItem";
+import { Header } from "./Header";
 
 import '../styles/repositories.scss';
 
@@ -23,7 +24,14 @@ export function RepositoryList(){
 
     return (
         <section className="repository-list">
-            <h1>Lista de Respositórios</h1>
+            <Header />
+
+            <section className="search-box">
+                <input type="text" placeholder="Buscar..."/>
+                <button>
+                    Search
+                </button>
+            </section>
 
             <ul>
                 {repositories.map(repository => {

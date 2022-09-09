@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { RepositoryItem } from "./RepositoryItem";
 import { RepositoryNotFound } from "./RepositoryNotFound";
 import { Header } from "./Header";
@@ -19,16 +19,32 @@ export function RepositoryList(){
 
     const [repositories, setRepositories] = useState<Repository[]>([]);
     const [typeRepository, setTypeRepository] = useState('orgs');
+    const [search, setSearch] = useState("");
+    const [alertEmptySearch, setAlertEmptySearch] = useState(false);
     const [spinner, setSpinner] = useState(false);
-    const [search, setSearch] = useState<string>("");
 
-    const fetchSearchRepositories = (r = search, t = typeRepository) => {
-        if(r && t) {
-            setSpinner(true);
-            fetch(`https://api.github.com/${t.trim()}/${r.trim()}/repos`)
+    useEffect(() => {
+        setSpinner(true);
+        fetch(`https://api.github.com/orgs/rocketseat/repos`)
             .then(res => res.json())
             .then(data => setRepositories(data))
             .finally(() => setSpinner(false));
+    }, [])
+
+    const fetchSearchRepositories = (r = search, t = typeRepository) => {
+        if(r && t) {
+            setAlertEmptySearch(false);
+
+            setSpinner(true);
+            
+            fetch(`https://api.github.com/${t.trim()}/${r.trim()}/repos`)
+            .then(res => res.json())
+            .then(data => setRepositories(data))
+            .finally(() => {
+                setSpinner(false)
+            });
+        } else {
+            setAlertEmptySearch(true);
         }
     }
 
@@ -40,7 +56,6 @@ export function RepositoryList(){
                 <input 
                     type="text" 
                     placeholder="Buscar..." 
-                    value={search} 
                     onChange={(event) => setSearch(event.target.value)}
                 />
 
@@ -58,6 +73,10 @@ export function RepositoryList(){
                     Search
                 </button>
             </section>
+
+            {alertEmptySearch && <span className="box-alert-empty-search">
+                *O campo de pesquisa está vázio.*
+            </span>}
 
             
             <Spinner isActived={spinner} />

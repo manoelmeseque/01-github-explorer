@@ -1,5 +1,7 @@
 import {MdExplore} from 'react-icons/md';
+
 import '../styles/header.scss';
+
 export function Header(){
     return (
         <header className="header-repository-list">

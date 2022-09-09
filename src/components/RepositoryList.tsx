@@ -41,7 +41,8 @@ export function RepositoryList(){
             .then(res => res.json())
             .then(data => setRepositories(data))
             .finally(() => {
-                setSpinner(false)
+                setSearch("");
+                setSpinner(false);
             });
         } else {
             setAlertEmptySearch(true);
@@ -55,7 +56,8 @@ export function RepositoryList(){
             <section className="search-box">
                 <input 
                     type="text" 
-                    placeholder="Buscar..." 
+                    placeholder="Buscar..."
+                    value={search}
                     onChange={(event) => setSearch(event.target.value)}
                 />
 
